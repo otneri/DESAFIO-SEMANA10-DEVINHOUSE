@@ -1,0 +1,45 @@
+.secaoformulario {
+background-color: rgb(83, 135, 246);
+width: 40%;
+margin-top: 2em;
+}
+
+form{
+
+font-size: larger;
+height: 100%;
+}
+
+form input , select {
+height: 3em;
+}
+
+form textarea {
+height: 10em;
+}
+
+form button {
+margin-bottom: 1em;
+margin: 2em;
+padding: 1em;
+border-radius: .5em;
+font-weight: bolder;
+}
+
+form button:hover{
+background-color: black;
+color: white ;
+}
+
+form div{
+font-weight: bolder;
+display: flex; 
+flex-direction: column;
+padding: 1em;
+}
+
+form .botoes {
+display: flex; 
+background-color: beige;
+margin-bottom: 10em;
+}
