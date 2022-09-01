@@ -1,17 +1,154 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+:root{
+  margin: 0em;
+  padding: 0em;
+}
+/* body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+header{
+  padding: 2em;
+  width: 100%;
+  height: 10em;
+  background-color: cadetblue;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+}
+header img {
+  width: 12em;
+  padding-left: 2em;
+}
+
+main{
+  display: flex;
+}
+
+
+#secaoformulario {
+  background-color: rgb(83, 135, 246);
+  width: 40%;
+  margin-top: 2em;
+  
+}
+form{
+ 
+  font-size: larger;
+  height: 100%;
+}
+form input , select {
+  height: 3em;
+
+}
+
+form textarea {
+  height: 10em;
+}
+
+form button {
+  
+  margin-bottom: 1em;
+  margin: 2em;
+  padding: 1em;
+  border-radius: .5em;
+  font-weight: bolder;
+
+
+
+}
+
+form button:hover{
+  background-color: black;
+  color: white ;
+}
+
+form div{
+  font-weight: bolder;
+  display: flex; 
+  flex-direction: column;
+  padding: 1em;
+}
+
+form .botoes {
+  display: flex; 
+  background-color: beige;
+  margin-bottom: 10em;
+  
+}
+
+.secaocards {
+  height: 100%;
+  width: 60%;
+  margin: 2em 5em; 
+}
+
+.secaocards input {
+  width: 85%;
+  height: 3em;
+  padding: 1.5em;
+  background-color: rgb(92, 92, 92);
+
+}
+
+.secaocards img{
+  width: 40px;
+}
+
+.contacategoria {
+  display: flex;
+  padding-left: 3em;
+  justify-content: space-around;
+  align-items: center;
+  
+  
+}
+.contacategoria li {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 120px;
+  margin: 3em 2em ;
+  text-decoration: none;
+  background-color: cadetblue;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search button {
+  
+  padding: 0 1em;
+  background-color: rgb(92, 92, 92);
+}
+
+.cards {
+  display: flex;
+  margin-top: 3em;
+  margin: 10px;
+  flex-wrap: wrap;
+
+}
+
+.cards button {
+  background-color:white;
+}
+
+.cards li {
+  background-color: beige;
+  border-radius: 1em;
+  padding: .4em;
+  max-width: 30%;
+  flex: 1 1 30%;
+  margin: .5em;
+  list-style-type: none;
+} */
