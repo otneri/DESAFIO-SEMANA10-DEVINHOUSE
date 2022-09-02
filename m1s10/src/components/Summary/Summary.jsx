@@ -1,6 +1,7 @@
 import styles from '../pages/Home/Home.module.css'
-import { SummaryCard } from '../SummaryCard/SummaryCard'
-import Proptypes from 'prop-types'
+import { TipCard } from '../TipCard/TipCard'
+import PropType from 'prop-types';
+
 
 
 export const Summary = ({title, count}) => {
@@ -28,12 +29,27 @@ export const Summary = ({title, count}) => {
         
             
         </div>
-        <SummaryCard title= {title}/>
+        <TipCard dica={{titulo : 'asjsjas',
+                        linguagem : 'Kfasdjaksf',
+                        categoria : 'sjdfjah',
+                        descricao : 'loremasdnasdkaenan',
+                        video: 'sdjfdsjfsf'}}/>
+        <TipCard dica={{titulo : 'asjsjas',
+                        linguagem : 'Kfasdjaksf',
+                        categoria : 'sjdfjah',
+                        descricao : 'loremasdnasdkaenan',
+                        video: 'sdjfdsjfsf'}}/>
+        <TipCard dica={{titulo : 'asjsjas',
+                        linguagem : 'Kfasdjaksf',
+                        categoria : 'sjdfjah',
+                        descricao : 'loremasdnasdkaenan',
+                        video: 'sdjfdsjfsf'}}/>
+        
         </>
     )
 }
 
 Summary.propTypes = {
-    title : Proptypes.string,
-    count : Proptypes.number
+    title : PropType.string,
+    count : PropType.number
 }
