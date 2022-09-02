@@ -1,7 +1,19 @@
 
 import styles from '../pages/Home/Home.module.css'
+import {  useForm } from 'react-hook-form'
+
+
 
 export const Sidebar = () => {
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+      const onSubmit = (data) => console.log(data);
+
+    const handleCreateTip = ((data) => console.log(data))
 
     return (
         <aside className={styles.sidebarcontainer}>
@@ -10,35 +22,57 @@ export const Sidebar = () => {
                 <span>Learn, Code and Save</span>
             </div>
             
-            <form>
+            <form onSubmit={handleSubmit(handleCreateTip)}>
                 <div className={styles.inputgroup}>
                 <label htmlFor="titulo">Titulo</label>
-                <input type="text" placeholder="digite um título..." id="titulo" />
+                <input {...register('titulo', {required: true})} 
+                        type="text" 
+                        placeholder="digite um título..." 
+                        id="titulo" />
+                {errors.titulo && <p>Titulo obrigatório.</p>}
                 </div>
 
                 <div className={styles.inputgroup}>
                 <label htmlFor="categoria">Categoria</label>
-                <select name="categoria" id="categoria" placeholder="escolha uma categoria...">
+                <select {...register('categoria', {required: true})} 
+                        name="categoria" 
+                        id="categoria" 
+                        placeholder="escolha uma categoria...">
                     <option value="">selecione uma categoria...</option>
                     <option value="front-end">Front end</option>
                     <option value="back-end">Back end</option>
                     <option value="full-stack">Full stack</option>
                 </select>
+                {errors.categoria && <p>Categoria obrigatória.</p>}
                 </div>
 
                 <div className={styles.inputgroup}>
                 <label htmlFor="linguagem">Linguagem / Skill</label>
-                <input type="text" id="linguagem" placeholder="digite uma categoria..." />
+                <input 
+                    {...register('linguagem' , {required: true})} 
+                    type="text" 
+                    id="linguagem" 
+                    placeholder="digite uma categoria..." />
+                    {errors.linguagem && <p>Linguagem obrigatória.</p> }
                 </div>
 
                 <div className={styles.inputgroup}>
                 <label htmlFor="descricao">Descrição</label>
-                <textarea type="text" id="descricao" placeholder="digite uma descrição..." rows="5"></textarea>
+                <textarea {...register ('descricao' , { min:10, max:64, required:true })} 
+                        type="text" 
+                        id="descricao" 
+                        placeholder="digite uma descrição..." 
+                        rows="5">
+                </textarea>
+                {errors.descricao && <p>Descricao obrigatória.</p>}
                 </div>
 
                 <div className={styles.inputgroup}>
                 <label htmlFor="video">Vídeo do Youtube (opcional)</label>
-                <input type="text" id="video" placeholder="digite uma url do YouTube..." />
+                <input {...register('video' , {required:false})} 
+                        type="text" 
+                        id="video" 
+                        placeholder="digite uma url do YouTube..." />
                 </div>
 
                 <div className={styles.btngroup}>
