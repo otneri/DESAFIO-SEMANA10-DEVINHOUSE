@@ -1,6 +1,8 @@
 
 import styles from '../pages/Home/Home.module.css'
 import {  useForm } from 'react-hook-form'
+import React from 'react';
+import { AppContext } from '../../contexts/app-context';
 
 
 
@@ -13,8 +15,9 @@ export const Sidebar = () => {
       } = useForm();
       const onSubmit = (data) => console.log(data);
 
+    
     const handleCreateTip = ((data) => console.log(data))
-
+    
     return (
         <aside className={styles.sidebarcontainer}>
             <div className={styles.sidebarcontainer__logo}>
@@ -28,7 +31,8 @@ export const Sidebar = () => {
                 <input {...register('titulo', {required: true})} 
                         type="text" 
                         placeholder="digite um título..." 
-                        id="titulo" />
+                        id="titulo" 
+                        />
                 {errors.titulo && <p>Titulo obrigatório.</p>}
                 </div>
 
