@@ -30,18 +30,21 @@ export const AppContext = ({children}) => {
     
 
 
-    const tips = 
-        filter ? allTips.filter(
-            tip => tip.titulo.includes(filterTips) 
-            ) : allTips;
-        
-    const filtro = () => {
-        null
-    }
+    const tips = filter ? allTips.filter(tip => tip.titulo.includes(filterTips)) : allTips;
+
+    const sortByCategory = () => {
+        const categories = Array.from(new Set(allTips.map((tip) => tip.categoria)));
+        return categories.map((catName) => {
+          const count = allTips.filter((tip) => tip.categoria == catName).length;
+          return { title: catName, count: count };
+        });
+      };
+    
+    const categories = sortByCategory();
 
     return(
 
-        <Contexto.Provider value={{createTip, filterTips, tips}}>
+        <Contexto.Provider value={{createTip, filterTips, tips, categories}}>
             {children}
         </Contexto.Provider>
         
