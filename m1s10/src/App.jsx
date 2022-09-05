@@ -7,11 +7,11 @@ function App() {
   
 
   return (
-    <body className="App">
+    <div className="App">
       <AppContext>
         <Home/>
       </AppContext>
-    </body>
+    </div>
   )
 }
 

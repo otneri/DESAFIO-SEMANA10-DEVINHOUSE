@@ -8,14 +8,8 @@ import { TipCard } from '../TipCard/TipCard'
 
 
 export const Main = () => {
-    const result = useAppContext();
-    console.log(result);
-    const umaDica = {
-        titulo: 'ajsdasd',
-        linguagem:'jasdajs',
-        categoria:'sjdfajf',
-        video: 'https://www.youtube.com/watch?v=37SwqREHRGI'
-    }
+    const { tips } = useAppContext();
+    console.log(tips);
     
     return (
         <main className={styles.maincontainer}>
@@ -23,12 +17,13 @@ export const Main = () => {
             <Filter/>
             <Summary/>
             <CardList>
-                <TipCard dica={umaDica}/>
-                <TipCard dica={umaDica}/>
-                <TipCard dica={umaDica}/>
+                {tips.map((tip, index) =>
+                     <TipCard key={index} tip={tip} />
+                )}
             </CardList>
 
         </main>
 
     )
 }
+

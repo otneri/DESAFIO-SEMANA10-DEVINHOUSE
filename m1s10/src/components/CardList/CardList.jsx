@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from '../pages/Home/Home.module.css'
 
 export const CardList = ( { children } ) => { 
@@ -7,3 +8,7 @@ export const CardList = ( { children } ) => {
         </div>  
     )
   }
+
+  CardList.propTypes = {
+    children: PropTypes.node,
+  };

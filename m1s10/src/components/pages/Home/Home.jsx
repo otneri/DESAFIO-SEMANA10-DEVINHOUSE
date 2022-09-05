@@ -15,14 +15,14 @@ import { Main } from '../../MainContent/MainContent'
 export const Home = () =>{
 
     return(
-    <body className={styles.root}>
+    <div className={styles.root}>
          <div className={styles.rootcontainer}>
         
             <Sidebar/>
             <Main/>
        
          </div>
-    </body>
+    </div>
 
     )
 }

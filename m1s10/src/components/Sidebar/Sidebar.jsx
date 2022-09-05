@@ -1,22 +1,22 @@
 
-import styles from '../pages/Home/Home.module.css'
 import {  useForm } from 'react-hook-form'
 import React from 'react';
-import { AppContext } from '../../contexts/app-context';
-
+import { useAppContext } from '../../contexts/app-context';
+import styles from '../pages/Home/Home.module.css'
 
 
 export const Sidebar = () => {
-
+    const {createTip} = useAppContext();
     const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm();
-      const onSubmit = (data) => console.log(data);
+      
+    //   const onSubmit = (data) => console.log(data);
 
     
-    const handleCreateTip = ((data) => console.log(data))
+    const handleCreateTip = ((data) => createTip(data))
     
     return (
         <aside className={styles.sidebarcontainer}>
@@ -80,10 +80,10 @@ export const Sidebar = () => {
                 </div>
 
                 <div className={styles.btngroup}>
-                <button className={styles.btnprimary} type="submit">
+                <button className={styles.btn} type="submit">
                     salvar
                 </button>
-                <button className={styles.btnsecondary} type="submit">
+                <button className={styles.btn} type="button">
                     limpar
                 </button>
                 </div>

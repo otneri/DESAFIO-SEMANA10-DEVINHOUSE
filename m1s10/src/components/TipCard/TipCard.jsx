@@ -1,67 +1,48 @@
-import styles from '../pages/Home/Home.module.css'
+import PropTypes from "prop-types";
+import React from "react";
 
-import PropType from 'prop-types';
-import { CardList } from '../CardList/CardList';
-
-export const TipCard = ({dica}) => {
-    const {titulo,linguagem, categoria, descricao,video} = dica
-    
-
-    return (
-        
-    
-            
-    <div className={styles.tipcardcontainer}>
-        <h2 className={styles.title}>{titulo}</h2>
-        <div className={styles.metadata}>
-            <div>
-            Linguagem: <span className={styles.metaValue}>{linguagem}</span>
-            </div>
-            <div>
-            Categoria: <span className={styles.metaValue}>{categoria}</span>
-            </div>
+export const TipCard = ({ tip }) => {
+  const { titulo, linguagem, categoria, descricao, video } = tip;
+  return (
+    <div className="tipcard-container">
+      <h2 className="title">{titulo}</h2>
+      <div className="metadata">
+        <div>
+          Linguagem: <span className="metaValue">{linguagem}</span>
         </div>
-        <div className={styles.content}>
-            {descricao}
+        <div>
+          Categoria: <span className="metaValue">{categoria}</span>
         </div>
-        
+      </div>
+      <div className="content">{descricao} </div>
+      <div className="btn-group align-left">
+        <button className="btn primary" type="submit">
+          editar
+        </button>
         {video && (
-            <a 
+          <a
             href={video}
-            target='_blank'
-            className={styles.btnprimary} 
+            target="_blank"
+            className="btn secondary"
             type="submit"
-            >
+          >
             YouTube
-            </a>
+          </a>
         )}
-        
-        <div className={styles.btngroup}>
-            <button className={styles.btnprimary} type="submit">
-            editar
-            </button>
-            {
-
-            }
-            
-            <button className={styles.btnsecondary} type="submit">
-            apagar
-            </button>
-        </div>
+        <button className="btn secondary" type="submit">
+          apagar
+        </button>
+      </div>
     </div>
-    
-        
-
-        
-    )
-}
+  );
+};
 
 TipCard.propTypes = {
-    dica : PropType.shape({
-        titulo : PropType.string,
-        linguagem : PropType.string,
-        categoria : PropType.string,
-        descricao : PropType.string,
-        video : PropType.string
-    })
-}
+  tip: PropTypes.shape({
+    id: PropTypes.string,
+    descricao: PropTypes.string,
+    categoria: PropTypes.string,
+    linguagem: PropTypes.string,
+    video: PropTypes.string,
+  }),
+};

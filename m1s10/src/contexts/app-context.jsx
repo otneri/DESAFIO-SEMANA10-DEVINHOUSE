@@ -1,36 +1,45 @@
-import * as React from 'react'
+import React from 'react'
 import PropType from 'prop-types';
 import { useContext } from 'react';
 import { useState } from 'react'
 
-export const Contexto  =  React.createContext()
+export const Contexto  =  React.createContext(null);    
+
+export const useAppContext = () => {
+    const contexto = useContext(Contexto);
+
+    return contexto;
+};
 
 
 export const AppContext = ({children}) => {
     const [allTips, setAllTips] = useState([
         {
-        titulo: 'ajsdasd',
-        linguagem:'jasdajs',
-        categoria:'sjdfajf',
-        video: 'https://www.youtube.com/watch?v=37SwqREHRGI'
-        }
-
+            titulo: "Uma dica",
+            descricao:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, tempore sequi dolorem reprehenderit quaerat accusamus quas excepturi officia natus, reiciendis architecto. Dolorum quaerat veritatis officia delectus suscipit error. Itaque quos ratione placeat deserunt corrupti voluptate dolorum mollitia optio, atque voluptas praesentium inventore asperiores fugiat omnis ab architecto ut laudantium commodi.",
+            categoria: "front-end",
+            linguagem: "css (flexbox)",
+            video: "https://www.youtube.com/watch?v=3elGSZSWTbM",
+          },
     ]);
     
     const [filter, setFilter] = useState([null])
 
 
     const createTip = (tip ) => {
-        setAllTips = (pTips => [...pTips , tip] )
+        setAllTips((pTips) => [...pTips , tip] )
     };
 
     const filterTips = (query) => {
-        (query ? setFilter (query) : setFilter(null))
-    };
+        if (query) {
+          setFilter(query);
+        } else {
+          setFilter(null);
+        }
+      };
     
-
-
-    const tips = filter ? allTips.filter(tip => tip.titulo.includes(filterTips)) : allTips;
+    const tips = filter ? allTips.filter((tip) => tip.titulo.includes(filter)) : allTips;
 
     const sortByCategory = () => {
         const categories = Array.from(new Set(allTips.map((tip) => tip.categoria)));
@@ -44,18 +53,14 @@ export const AppContext = ({children}) => {
 
     return(
 
-        <Contexto.Provider value={{createTip, filterTips, tips, categories}}>
+        <Contexto.Provider value={{filterTips, createTip, tips, categories}}>
             {children}
         </Contexto.Provider>
         
     )
 }
 
-export const useAppContext = () => {
-    const contexto = useContext(Contexto);
 
-    return contexto;
-};
 
 
 AppContext.propTypes = {
